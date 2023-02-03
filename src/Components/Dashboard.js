@@ -1,8 +1,10 @@
 import axios from 'axios'
-import React, { useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Helpers/AuthContext';
 import { DataContext } from '../Helpers/DataContext';
+import Card from './Card';
+
 
 
 
@@ -13,11 +15,26 @@ const Dashboard = () => {
 
     const { logIn, setLogIn } = useContext(AuthContext)
     const { data, setData } = useContext(DataContext)
+    const [loading, setLoading] = useState(false)
+
+    const fetchPhotos = async() => {
+        try {
+            setLoading(true)
+           const response = await axios.get('https://jsonplaceholder.typicode.com/photos');
+            const photos = response.data
+                if(photos){
+                    setData(photos);
+                }
+        } catch (err) {
+            console.log(err)
+        }
+        setLoading(false)
+    }
+
+
 
     useEffect(() => {
-        axios.get('https://api.imgflip.com/get_memes').then((res) => {
-            console.log(res)
-        })
+        fetchPhotos()
     }, [])
 
     const logout = () => {
@@ -27,6 +44,7 @@ const Dashboard = () => {
 
     return (
         <>
+
             {logIn ? <>
                 <nav className='w-full h-max bg-black/30 border border-black border-b-0'>
                     <ul>
@@ -34,8 +52,14 @@ const Dashboard = () => {
                     </ul>
                 </nav>
 
-                <div>
-                    
+                <div className="grid grid-cols-3 gap-4">
+                    {data?.map((item) => {
+
+                        console.log(item)
+                    })
+                    }
+
+
                 </div>
 
 
@@ -46,6 +70,7 @@ const Dashboard = () => {
                         Please&nbsp;<Link to='/'>LogIn&nbsp;</Link>  to use
                     </h1>
                 </div>}
+                
         </>
     )
 }

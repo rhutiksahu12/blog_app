@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../Helpers/AuthContext';
+import Card from './Card';
 
 const Login = () => {
     const { setLogIn, user, email, password, setEmail, setPassword } = useContext(AuthContext)
@@ -20,7 +21,7 @@ const Login = () => {
 
     return (
         <>
-          
+          <Card />
             <div className=' place-self-center justify-items-center rounded-lg bg-gradient-to-br from-inherit to-transparent h-2/3  w-2/3 lg:w-1/3'>
                 
                     <div className='flex flex-col h-full gap-y-4 items-center justify-center'>

@@ -7,8 +7,8 @@ import Dashboard from "./Components/Dashboard";
 import Login from './Components/Login';
 
 const user = {
-  email: "admin@gmail.com",
-  password: "password123"
+  email: "1234",
+  password: "123"
 }
 
 
@@ -18,10 +18,11 @@ function App() {
   const [logIn, setLogIn] = useState(false)
 
   const [ data, setData ] = useState('')
+  const [limit, setLimit] = useState(1)
 
   return (
     <AuthContext.Provider value={{ email, setEmail, password, setPassword, user, logIn, setLogIn }}>
-      <DataContext.Provider value={{data, setData}}>
+      <DataContext.Provider value={{data, setData, limit, setLimit}}>
         <div className="grid bg-gradient-to-br from-slate-900 to-teal-600 min-h-screen">
           <Routes>
             {/* <h1 className="text-3xl text-white font-bold underline">

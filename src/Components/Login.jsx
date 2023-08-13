@@ -19,7 +19,7 @@ const Login = () => {
         // console.log(email, password)
         if (user.email === email && user.password === password) {
             setLogIn(true)
-            navigate("/dashboard")
+            navigate("./dashboard")
             // console.log("hello")
         } else {
             setError(true)

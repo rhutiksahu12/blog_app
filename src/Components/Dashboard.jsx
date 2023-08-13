@@ -47,7 +47,7 @@ const Dashboard = () => {
     }, [])
 
     const logout = () => {
-        navigate('/')
+        navigate('./')
         setLogIn(false)
     }
 
@@ -73,7 +73,7 @@ const Dashboard = () => {
                     :
                     <div>
                         <h1 className='flex text-5xl items-center justify-center'>
-                            Please&nbsp;<Link to='/'>LogIn&nbsp;</Link>  to use
+                            Please&nbsp;<Link to='./'>LogIn&nbsp;</Link>  to use
                         </h1>
                     </div>
             }

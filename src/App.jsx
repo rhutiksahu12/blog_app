@@ -47,8 +47,8 @@ function App() {
             {/* <h1 className="text-3xl text-white font-bold underline">
           Hello world!
           </h1> */}
-            <Route path="/" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="./" element={<Login />} />
+            <Route path="./dashboard" element={<Dashboard />} />
 
           </Routes>
         </div>
